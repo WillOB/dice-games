@@ -1,3 +1,5 @@
+require './scan'
+
 points1 = 0
 points2 = 0
 while points1 < 100 && points2 < 100

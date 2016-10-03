@@ -1,3 +1,4 @@
+require './scan'
 
 puts '''
 Choose a bet type:
@@ -8,10 +9,10 @@ Choose a bet type:
 5: Field
 '''
 print "Enter number of bet type:"
-type = gets.chomp.to_i
+type = scan.chomp.to_i
 while type > 5 || type < 1
   print "Enter a number 1 to 5: "
-  type = gets.chomp.to_i
+  type = scan.chomp.to_i
 end
 
 roll = [rand(7), rand(7), rand(7)]
@@ -24,16 +25,16 @@ money = 100
 
 
 print "How much do you bet? You have $#{money}."
-amt = gets.chomp.to_i
+amt = scan.chomp.to_i
 while amt > money
   print "You don't have that much money! Enter a smaller number: "
-  amt = gets.chomp.to_i
+  amt = scan.chomp.to_i
 end
 money -= amt
 
 if type == 1
   print "What number will appear?"
-  bet = gets.chomp.to_i
+  bet = scan.chomp.to_i
   puts "The roll is #{roll}."
   if roll.include?(bet)
     win = true
@@ -42,7 +43,7 @@ if type == 1
   end
 elsif type == 2
   print "Enter a number that all three dice will show."
-  bet = gets.chomp.to_i
+  bet = scan.chomp.to_i
   puts "The roll is #{roll}."
   if roll[0] == bet && roll[1] == bet && roll[3] == bet
     win = true
